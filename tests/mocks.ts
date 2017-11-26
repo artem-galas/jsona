@@ -1,5 +1,10 @@
 import {RELATIONSHIP_NAMES_PROP} from '../src/simplePropertyMappers';
 
+export interface IUser {
+  name: string;
+  active: boolean;
+}
+
 export const country2 = {
     model: {
         type: 'country',

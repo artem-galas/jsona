@@ -26,7 +26,7 @@ class JsonDeserializer implements IJsonaModelBuilder {
         this.body = body;
     }
 
-    build(): TJsonaModel | Array<TJsonaModel> {
+    build<T extends TJsonaModel>(): T {
         const {data} = this.body;
         let staff;
 

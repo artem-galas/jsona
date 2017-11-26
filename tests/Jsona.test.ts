@@ -11,7 +11,8 @@ import {
     specialty2,
     country1,
     country2,
-    reduxObject1, circular, reduxObjectWithCircular
+    reduxObject1, circular, reduxObjectWithCircular,
+    IUser
 } from './mocks';
 
 chai.config.showDiff = true;
@@ -161,5 +162,12 @@ describe('Jsona', () => {
         });
 
     });
+
+    describe('jsona with generic function', () => {
+        it('should deserialize item without included', () => {
+          const userModel: IUser = jsona.deserialize<IUser>({data: user2.json});
+          expect(userModel).to.be.deep.equal(user2.modelWithoutIncluded);
+        })
+    })
 
 });

@@ -64,7 +64,7 @@ class Jsona {
      * deserialize
      * Creates Jsona model(s) from JSON, compatible with json:api specification.
      */
-    deserialize(body: TJsonApiBody | string): TJsonaModel | Array<TJsonaModel> {
+    deserialize<T extends TJsonaModel>(body: TJsonApiBody | string): T {
         if (!body) {
             throw new Error('Jsona can not deserialize, body is not passed');
         }
@@ -77,7 +77,7 @@ class Jsona {
             modelBuilder.setJsonParsedObject(body);
         }
 
-        return modelBuilder.build();
+        return modelBuilder.build<T>();
     }
 
     /**
